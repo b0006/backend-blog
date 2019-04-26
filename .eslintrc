@@ -1,0 +1,45 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "space-in-parens": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "space-infix-ops": "error",
+    "no-multi-spaces": "error",
+    "no-octal": "error",
+    "no-delete-var": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "block-spacing": "error",
+    "yoda": "error",
+    "no-useless-escape": "error",
+    "no-self-assign": "error",
+    "no-redeclare": "error",
+    "linebreak-style": ["error", "unix"],
+    "no-param-reassign": ["error", { "props": true }],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "camelcase": [2, {"properties": "never"}],
+    "comma-dangle": ["error", "never"],
+    "no-return-await": ["error"],
+    "keyword-spacing": ["error", { "overrides": {
+      "if": { "after": true },
+      "for": { "after": true },
+      "while": { "after": true },
+      "catch": { "after": true }
+    } }]
+  }
+}
