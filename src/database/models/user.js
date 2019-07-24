@@ -17,11 +17,6 @@ module.exports = function(sequelize, Sequelize) {
         notEmpty: true,
         allowNull: false
       },
-      email: {
-        type: Sequelize.STRING,
-        notEmpty: true,
-        allowNull: false
-      },
       avatar: {
         type: Sequelize.STRING,
         allowNull: true

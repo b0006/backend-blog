@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const { ApolloServer, gql } = require('apollo-server-express');
 const session = require('express-session');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -7,6 +7,10 @@ const bodyParser = require('body-parser');
 const upload = require('express-fileupload');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
+
+const typeDefs = require('./database/graphql/schemes');
+const resolvers = require('./database/graphql/resolvers');
+
 logger.level = 'debug';
 
 const env = process.env.NODE_ENV === 'development' ? 'development' : 'production';
@@ -24,6 +28,16 @@ const keyWordApiRouter = require('./routes/api/keyWord');
 const app = express();
 //load passport strategies
 require('./passport')(passport, models.user);
+
+const graphQlInit = () => {
+  const server = new ApolloServer({
+    typeDefs: gql(typeDefs),
+    resolvers,
+    context: { db: models }
+  });
+
+  server.applyMiddleware({ app, path: '/ql' });
+}
 
 const passportInit = () => {
   app.use(cookieParser('punks_not_dead'));
@@ -74,6 +88,8 @@ const appInit = () => {
   passportInit();
 
   routeInit();
+
+  graphQlInit();
 };
 
 appInit();
