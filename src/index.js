@@ -1,29 +1,28 @@
-const express = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
-const session = require('express-session');
-const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const upload = require('express-fileupload');
-const log4js = require('log4js');
-const logger = log4js.getLogger();
+import express from 'express';
+import { ApolloServer, gql } from 'apollo-server-express';
+import session from 'express-session';
+import passport from 'passport';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import upload from 'express-fileupload';
+import log4js from 'log4js';
 
-const typeDefs = require('./database/graphql/schemes');
-const resolvers = require('./database/graphql/resolvers');
+import typeDefs from './database/graphql/schemes';
+import resolvers from './database/graphql/resolvers';
 
-logger.level = 'debug';
+import { development, production } from '../config';
 
-const env = process.env.NODE_ENV === 'development' ? 'development' : 'production';
-const config = require('../config')[env];
+const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'production';
+const config = env === 'production' ? production : development;
 
-const models = require('./database/models');
+import models from './database/models';
 
-const homeRouter = require('./routes/home');
-const authRouter = require('./routes/auth');
+import homeRouter from './routes/home';
+import authRouter from './routes/auth';
 
-const articleApiRouter = require('./routes/api/article');
-const commentApiRouter = require('./routes/api/comment');
-const keyWordApiRouter = require('./routes/api/keyWord');
+import articleApiRouter from './routes/api/article';
+import commentApiRouter from './routes/api/comment';
+import keyWordApiRouter from './routes/api/keyWord';
 
 const app = express();
 //load passport strategies
@@ -93,6 +92,9 @@ const appInit = () => {
 };
 
 appInit();
+
+const logger = log4js.getLogger();
+logger.level = 'debug';
 
 global.APP = {
   log: (msg) => config.debug ? console.log(msg) : null

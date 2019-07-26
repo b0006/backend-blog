@@ -1,6 +1,8 @@
-const express = require('express');
+import express from 'express';
+
+import keyWordController from '../../controllers/api/keyWord';
+
 const router = express.Router();
-const keyWordController = require('../../controllers/api/keyWord');
 
 router.put('/keyWords',keyWordController.addKeyWord);
 
@@ -10,4 +12,4 @@ router.delete('/keyWords',keyWordController.deleteKeyWord);
 
 router.post('/keyWords/:id',keyWordController.updateKeyWord);
 
-module.exports = router;
+export default router;

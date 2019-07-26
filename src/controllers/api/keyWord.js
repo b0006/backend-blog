@@ -1,7 +1,8 @@
-const models = require('../../database/models');
-const { md5 } = require('../../utils/hash');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+
+import models from '../../database/models';
+import { md5 } from '../../utils/hash';
 const appDir = path.dirname(require.main.filename);
 
 class KeyWord {

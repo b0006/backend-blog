@@ -1,6 +1,8 @@
-const express = require('express');
+import express from 'express';
+
+import articleController from '../../controllers/api/article';
+
 const router = express.Router();
-const articleController = require('../../controllers/api/article');
 
 router.get('/articles', articleController.getList);
 
@@ -16,5 +18,4 @@ router.post('/images', articleController.saveImage);
 
 router.post('/articles/:id', articleController.updateArticle);
 
-module.exports = router;
-
+export default router;

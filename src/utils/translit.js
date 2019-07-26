@@ -19,7 +19,7 @@ const dict = {
   'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya'
 };
 
-function translit(str) {
+export function translit(str) {
   let newStr = str;
 
   for (let i = 0; i < newStr.length; i++) {
@@ -37,7 +37,3 @@ function translit(str) {
 
   return newStr;
 }
-
-module.exports = {
-  translit
-};

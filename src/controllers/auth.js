@@ -1,8 +1,10 @@
-const passport = require('passport');
-const models = require('../database/models');
-const bCrypt = require('bcrypt-nodejs');
-const nodemailer = require('nodemailer');
-const sendgridTransport = require('nodemailer-sendgrid-transport');
+import passport from 'passport';
+import bCrypt from 'bcrypt-nodejs';
+import nodemailer from 'nodemailer';
+import sendgridTransport from 'nodemailer-sendgrid-transport';
+
+import models from '../database/models';
+
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {

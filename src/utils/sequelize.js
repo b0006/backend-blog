@@ -1,6 +1,6 @@
-const models = require('../database/models');
+import models from '../database/models';
 
-const getItems = (dbName) => {
+export const getItems = (dbName) => {
   return models[dbName].findAll()
     .then(result => {
       return result.map(item => item.dataValues);
@@ -9,8 +9,4 @@ const getItems = (dbName) => {
       APP.log.error(err);
       return false;
     });
-};
-
-module.exports = {
-  getItems
 };

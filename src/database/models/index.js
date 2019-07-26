@@ -1,10 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
+import fs from 'fs';
+import path from 'path';
+import Sequelize from 'sequelize';
+
+import { development, production } from '../config';
 
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'production';
-const config = require('../config')[env];
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
+const config = env === 'production' ? production : development;
+
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 
 let db = {};
 

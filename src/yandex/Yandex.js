@@ -1,6 +1,8 @@
+import fetch from 'node-fetch';
+
+import { yandex } from '../config';
+
 const apiBase = 'https://cloud-api.yandex.net';
-const { yandex } = require('../config');
-const fetch = require('node-fetch');
 
 class YandexDisk {
   static async getResource (url, method = 'GET') {
@@ -60,4 +62,4 @@ class YandexDisk {
   }
 }
 
-module.exports = YandexDisk;
+export default YandexDisk;

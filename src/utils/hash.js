@@ -1,4 +1,4 @@
-function md5 ( str ) {
+export function md5 ( str ) {
 
   const RotateLeft = function(lValue, iShiftBits) {
     return (lValue<<iShiftBits) | (lValue>>>(32-iShiftBits));
@@ -169,7 +169,3 @@ function md5 ( str ) {
 
   return temp.toLowerCase();
 }
-
-module.exports = {
-  md5
-};

@@ -1,4 +1,4 @@
-const models = require('../../database/models');
+import models from '../../database/models';
 
 function getTree(comments, pid = 0) {
   let commentItem = {};

@@ -1,4 +1,5 @@
-const path = require('path');
+import path from 'path';
+
 const appDir = path.dirname(require.main.filename);
 
 class Home {

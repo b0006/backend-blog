@@ -1,5 +1,5 @@
-const articleConstants = require('./article');
+import * as articleConstants from './article';
 
-module.exports = {
+export {
   articleConstants
-};
+}

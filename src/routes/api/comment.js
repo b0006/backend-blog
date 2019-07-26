@@ -1,9 +1,11 @@
-const express = require('express');
+import express from 'express';
+
+import commentController from '../../controllers/api/comment';
+
 const router = express.Router();
-const commentController = require('../../controllers/api/comment');
 
 router.get('/comment', commentController.getList);
 
 router.put('/comment', commentController.addComment);
 
-module.exports = router;
+export default router;

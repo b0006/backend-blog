@@ -1,4 +1,4 @@
-module.exports = function(sequelize, Sequelize) {
+export default function(sequelize, Sequelize) {
 
   const Role = sequelize.define('role',
     {

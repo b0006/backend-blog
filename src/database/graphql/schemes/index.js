@@ -1,4 +1,4 @@
-module.exports = `
+const schema = `
   type Query {
     user(id: ID!): User
     users: [User!]!
@@ -9,18 +9,6 @@ module.exports = `
     login: String!
     email: String!
   }
-`;
+`
 
-
-// module.exports = `
-//   type User {
-//     id: ID!
-//     login: String!
-//     email: String!
-//   }
-
-//   type Query {
-//     user(id: ID!): User
-//     users: [User!]!
-//   }
-// `;
+export default schema;

@@ -1,15 +1,16 @@
-const models = require('../../database/models');
-const cache = require('memory-cache');
-const fs = require('fs');
-const path = require('path');
+import cache from 'memory-cache';
+import fs from 'fs';
+import path from 'path';
 
-const { yandex, saveFiles } = require('../../config');
-const YandexDisk = require('../../yandex/Yandex');
+import models from '../../database/models';
 
-const { translit } = require('../../utils/translit');
-const { md5 } = require('../../utils/hash');
+import { yandex, saveFiles } from '../../config';
+import YandexDiskfrom from '../../yandex/Yandex';
 
-const { articleConstants } = require('../../constants');
+import { translit } from '../../utils/translit';
+import { md5 } from '../../utils/hash';
+
+import { articleConstants } from '../../constants';
 
 const appDir = path.dirname(require.main.filename);
 
